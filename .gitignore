@@ -1,13 +1,14 @@
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
+# Node.js dependencies and build output
+node_modules/
+dist/
+build/
+coverage/
+# Next.js/React static output
+.next/
+out/
+# System junk
 .DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
-
-# Environment variables
+*.log
+*.swp
+# Miscellaneous
 .env*
