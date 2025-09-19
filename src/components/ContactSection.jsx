@@ -1,29 +1,42 @@
-import { useState } from "react";
-import { Mail, Phone, MapPin, Linkedin, Instagram, Facebook, Send } from "lucide-react";
+import { useRef, useState } from "react";
+import emailjs from "@emailjs/browser";
+import { Mail, Phone, MapPin, Linkedin, Facebook, Send } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
 
 export const ContactSection = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const formRef = useRef(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setTimeout(() => {
+
+    emailjs.sendForm(
+      import.meta.env.VITE_EMAILJS_SERVICE_ID,
+      import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+      formRef.current,
+      import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+    ).then(() => {
       toast({
         title: "Message Sent",
         description: "Thank you for reaching out! I'll get back to you soon.",
       });
       setIsSubmitting(false);
-    }, 1500);
+      formRef.current.reset();
+    }).catch(() => {
+      toast({
+        title: "Error",
+        description: "Something went wrong. Please try again later.",
+        variant: "destructive",
+      });
+      setIsSubmitting(false);
+    });
   };
 
   return (
-    <section
-      id="contact"
-      className="py-24 px-4 relative bg-secondary/30"
-    >
+    <section id="contact" className="py-24 px-4 relative bg-secondary/30">
       <div className="container mx-auto max-w-5xl">
         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
           Get In <span className="text-primary">Touch</span>
@@ -32,11 +45,9 @@ export const ContactSection = () => {
           Having a project in mind or want to collaborate? Feel free to reach
           out. I'm always open to discuss new opportunities.
         </p>
-
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           <div className="space-y-8">
             <h3 className="text-2xl font-semibold mb-6">Contact</h3>
-
             <div className="space-y-6">
               {/* Email */}
               <div className="flex items-center space-x-4">
@@ -101,7 +112,7 @@ export const ContactSection = () => {
           </div>
           <div className="bg-card p-8 rounded-lg shadow-xs">
             <h3 className="text-2xl font-semibold mb-6">Send a Message</h3>
-            <form className="space-y-6" onSubmit={handleSubmit}>
+            <form ref={formRef} className="space-y-6" onSubmit={handleSubmit}>
               <div>
                 <label htmlFor="name" className="block text-sm font-medium mb-2">
                   Your Name

@@ -12,3 +12,4 @@ out/
 *.swp
 # Miscellaneous
 .env*
+.env.local

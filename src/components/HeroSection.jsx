@@ -6,16 +6,12 @@ export const HeroSection = () => {
             <div className="space-y-6">
                 <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
                     <span className="opacity-0 animate-fade-in">Hi I'm </span>
-                    <span className="text-primary opacity-0 animate-fade-in-delay-1">Suyash </span>
+                    <span className="text-primary opacity-0 animate-fade-in-delay-1">Suyash</span>
                     {" "}
-                    <span className="text-gradient ml-2 opacity-0 animate-fade-in-delay-2"> Jawadekar</span>
+                    <span className="text-gradient ml-2 opacity-0 animate-fade-in-delay-2"></span>
                 </h1>
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto opacity-0 animate-fade-in-delay-3">
-                I am a passionate Software Developer who builds high-performance backend 
-                systems, cloud-native applications, and AI-powered solutions that solve 
-                real-world problems. I specialize in Python, Java, Spring Boot,
-                 AWS/Azure, and Kubernetes to create scalable systems that drive 
-                 business impact in dynamic, fast-paced environments
+                Experienced backend engineer with a track record of building scalable, production-grade systems in telecom (AT&T, T-Mobile) and startups. Specialized in Python, Java, Spring Boot, and cloud-native applications. I thrive on solving tough technical problems, integrating AI where it matters, and continuously learning—with coffee and nature hikes fueling my curiosity.
             </p>
 
             <div className="pt-4 opacity-0 animate-fade-in-delay-4">
