@@ -1,5 +1,6 @@
 import { cn } from "@/lib/utils";
 import React, { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { Menu, X } from "lucide-react";
 import { ThemeToggle } from "../components/ThemeToggle";
 
@@ -8,7 +9,7 @@ const navItems = [
   { name: "About", href: "#about" },
   { name: "Skills", href: "#skills" },
   { name: "Projects", href: "#projects" },
-  { name: "Experience", href: "#workexp" },  // Now included
+  { name: "Experience", href: "#workexp" },
   { name: "Education", href: "#education" },
   { name: "Contact", href: "#contact" }
 ];
@@ -16,6 +17,18 @@ const navItems = [
 export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  // Lock background scroll when menu is open
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isMenuOpen]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -44,7 +57,6 @@ export const Navbar = () => {
             Portfolio
           </span>
         </a>
-
         {/* Desktop nav */}
         <div className="hidden md:flex space-x-8">
           {navItems.map((item, key) => (
@@ -57,8 +69,7 @@ export const Navbar = () => {
             </a>
           ))}
         </div>
-
-        {/* Mobile nav */}
+        {/* Mobile nav toggle button */}
         <button
           onClick={() => setIsMenuOpen((prev) => !prev)}
           className="md:hidden p-2 text-foreground z-50"
@@ -66,31 +77,37 @@ export const Navbar = () => {
         >
           {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
-        <div
-          className={cn(
-            "fixed inset-0 bg-background/95 backdrop-blur-md z-40 flex flex-col items-center justify-center",
-            "transition-all duration-300 md:hidden",
-            isMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
-          )}
-        >
-          <div className="flex flex-col space-y-8 text-xl items-center">
-            {navItems.map((item, key) => (
-              <a
-                key={key}
-                href={item.href}
-                className="text-foreground/80 hover:text-primary transition-colors duration-300"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {item.name}
-              </a>
-            ))}
-            {/* Add the toggle for mobile here */}
-            <div className="pt-6">
-              <ThemeToggle mobile />
-            </div>
-          </div>
-        </div>
       </div>
+      {/* Portal overlay/menu goes here */}
+      {isMenuOpen &&
+        createPortal(
+          <>
+            {/* Overlay, always viewport-filling */}
+            <div className="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 min-h-screen h-full w-full md:hidden"></div>
+            {/* Mobile menu */}
+            <div className="fixed inset-0 z-60 flex flex-col items-center justify-center opacity-100 pointer-events-auto transition-all duration-300 md:hidden"
+                 style={{ background: "transparent" }}
+            >
+              <div className="flex flex-col space-y-8 text-xl items-center">
+                {navItems.map((item, key) => (
+                  <a
+                    key={key}
+                    href={item.href}
+                    className="text-foreground/80 hover:text-primary transition-colors duration-300"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {item.name}
+                  </a>
+                ))}
+                <div className="pt-6">
+                  <ThemeToggle mobile />
+                </div>
+              </div>
+            </div>
+          </>,
+          document.body
+        )
+      }
     </nav>
   );
 };
