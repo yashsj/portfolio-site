@@ -48,15 +48,7 @@ export const Navbar = () => {
       )}
     >
       <div className="container flex items-center justify-between">
-        <a
-          className="text-2xl font-bold text-primary flex items-center"
-          href="#hero"
-        >
-          <span className="relative z-10">
-            <span className="text-glow text-foreground">Suyash Jawadekar</span>{" "}
-            Portfolio
-          </span>
-        </a>
+       
         {/* Desktop nav */}
         <div className="hidden md:flex space-x-8">
           {navItems.map((item, key) => (
@@ -81,30 +73,32 @@ export const Navbar = () => {
       {/* Portal overlay/menu goes here */}
       {isMenuOpen &&
         createPortal(
-          <>
-            {/* Overlay, always viewport-filling */}
-            <div className="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 min-h-screen h-full w-full md:hidden"></div>
-            {/* Mobile menu */}
-            <div className="fixed inset-0 z-60 flex flex-col items-center justify-center opacity-100 pointer-events-auto transition-all duration-300 md:hidden"
-                 style={{ background: "transparent" }}
+          <div className="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 min-h-screen h-full w-full md:hidden">
+            {/* X close button absolutely positioned top right */}
+            <button
+              className="fixed top-6 right-6 p-3 rounded-full bg-black/70 z-60 md:hidden"
+              aria-label="Close menu"
+              onClick={() => setIsMenuOpen(false)}
             >
-              <div className="flex flex-col space-y-8 text-xl items-center">
-                {navItems.map((item, key) => (
-                  <a
-                    key={key}
-                    href={item.href}
-                    className="text-foreground/80 hover:text-primary transition-colors duration-300"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    {item.name}
-                  </a>
-                ))}
-                <div className="pt-6">
-                  <ThemeToggle mobile />
-                </div>
+              <X size={28} className="text-white" />
+            </button>
+            {/* Mobile menu */}
+            <div className="flex flex-col space-y-8 text-xl items-center justify-center h-full">
+              {navItems.map((item, key) => (
+                <a
+                  key={key}
+                  href={item.href}
+                  className="text-foreground/80 hover:text-primary transition-colors duration-300"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {item.name}
+                </a>
+              ))}
+              <div className="pt-6">
+                <ThemeToggle mobile />
               </div>
             </div>
-          </>,
+          </div>,
           document.body
         )
       }

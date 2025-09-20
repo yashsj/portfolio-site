@@ -1,4 +1,4 @@
-import { ExternalLink, Github,ArrowRight} from "lucide-react";
+import { ExternalLink, Github, ArrowRight } from "lucide-react";
 
 const projects = [
     {
@@ -15,8 +15,7 @@ const projects = [
         title: "SpeechNet: Automated Human Speech Isolation", 
         description: "Developed at Amdocs, this project delivers an automated deep learning pipeline for isolating human speech from background noise in audio files. Leveraging Python and Librosa, it converted over 7,500 audio samples into spectrograms for robust training and curation. Several neural network architectures were built and evaluated, deploying an Artificial Neural Network (ANN) model that achieved 82.32% accuracy. The solution enables scalable, automated extraction of human speech from diverse real-world datasets.",
         image: "/projects/SpeechNet.png",
-        tags: ["Python", "Deep Learning", "Librosa", "NumPy", "Matplotlib", "Artificial Neural Networks", "Audio Signal Processing", "Data Engineering", "Classification", "Spectrograms", "Amdocs", "Automation", "Noise Reduction", "Machine Learning", "Data Preprocessing"]
-,
+        tags: ["Python", "Deep Learning", "Librosa", "NumPy", "Matplotlib", "Artificial Neural Networks", "Audio Signal Processing", "Data Engineering", "Classification", "Spectrograms", "Amdocs", "Automation", "Noise Reduction", "Machine Learning", "Data Preprocessing"],
         demoUrl: "#",
         githubUrl: "https://github.com/yashsj/SpeechNet",
     },
@@ -45,6 +44,9 @@ export const ProjectSection = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {projects.map((project) => (
                         <div key={project.id} className="group bg-card rounded-lg shadow-xs overflow-hidden card-hover">
+                            {/* Project title at the top */}
+                            <h3 className="text-xl font-semibold mb-2 px-6 pt-6">{project.title}</h3>
+                            {/* Image next */}
                             <div className="h-48 overflow-hidden">
                                 <img 
                                     src={project.image} 
@@ -53,6 +55,9 @@ export const ProjectSection = () => {
                                 />
                             </div>
                             <div className="p-6">
+                                {/* Project description below image */}
+                                <p className="text-foreground text-sm mb-4">{project.description}</p>
+                                {/* Tech stack badges at the end for easy scanability */}
                                 <div className="flex flex-wrap gap-2 mb-4">
                                     {project.tags.map((tag) => (
                                         <span key={tag} className="px-2 py-1 text-xs font-medium rounded-full bg-primary text-primary-foreground">
@@ -60,8 +65,6 @@ export const ProjectSection = () => {
                                         </span>
                                     ))}
                                 </div>
-                                <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-                                <p className="text-foreground text-sm mb-4">{project.description}</p>
                                 <div className="flex justify-between items-center">
                                     <div className="flex items-center space-x-3">
                                         <a 
@@ -85,13 +88,15 @@ export const ProjectSection = () => {
                             </div>
                         </div>
                     ))}
-
                 </div>
                 <div className="text-center mt-12">
-                    <a className="cosmic_button w-fit flex items-center mx-auto gap-2" 
-                    target="_blank"
-                    href="https://github.com/yashsj">Check my GitHub <ArrowRight size={16}/></a>
-
+                    <a 
+                        className="cosmic_button w-fit flex items-center mx-auto gap-2" 
+                        target="_blank"
+                        href="https://github.com/yashsj"
+                    >
+                        Check my GitHub <ArrowRight size={16}/>
+                    </a>
                 </div>
             </div>
         </section>
