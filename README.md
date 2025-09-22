@@ -75,12 +75,6 @@ Open issues or pull requests—feedback and collaboration welcome!
 
 ---
 
-## 📝 License
-
-MIT
-
----
-
 ## 📧 Contact
 
 [LinkedIn](https://www.linkedin.com/in/suyash-jawadekar/)  
