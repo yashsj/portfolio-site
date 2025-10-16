@@ -11,9 +11,7 @@ export const HeroSection = () => {
                     <span className="text-gradient ml-2 opacity-0 animate-fade-in-delay-2"></span>
                 </h1>
             <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto opacity-0 animate-fade-in-delay-3">
-                Experienced backend engineer with a track record of building scalable, production-grade systems in telecom (AT&T, T-Mobile) and startups. Specialized in Python, Java, Spring Boot, and cloud-native applications. I thrive on solving tough technical problems, integrating AI where it matters, and continuously learning—with coffee and nature hikes fueling my curiosity.
-            </p>
-
+                Software engineer with experience in telecom (AT&T/T-Mobile) and startups, building scalable cloud and AI-powered systems using Python, Java, and Spring Boot.</p>
             <div className="pt-4 opacity-0 animate-fade-in-delay-4">
                 <a href="#projects" className="cosmic_button">
                     View My Work

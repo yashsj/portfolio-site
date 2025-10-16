@@ -1,3 +1,5 @@
+
+
 @import "tailwindcss";
 
 @theme {
@@ -8,31 +10,56 @@
   --color-primary-foreground: hsl(var(--primary-foreground));
   --color-card: hsl(var(--card));
 
+
   --animate-float: float 6s ease-in-out infinite;
   --animate-pulse-subtle: pulse 4s ease-in-out infinite;
   --animate-fade-in: fade-in 0.7s ease-in-out forwards;
-  --animate-fade-in-delay-1: fade-in 0.7s ease-out 0s forwards;
-  --animate-fade-in-delay-2: fade-in 0.7s ease-out 0s forwards;
-  --animate-fade-in-delay-3: fade-in 0.7s ease-out 0s forwards;
-  --animate-fade-in-delay-4: fade-in 0.7s ease-out 0s forwards;
+  --animate-fade-in-delay-1: fade-in 0.7s ease-out 0.2s forwards;
+  --animate-fade-in-delay-2: fade-in 0.7s ease-out 0.4s forwards;
+  --animate-fade-in-delay-3: fade-in 0.7s ease-out 0.6s forwards;
+  --animate-fade-in-delay-4: fade-in 0.7s ease-out 0.8s forwards;
   --animate-meteor: meteor 5s linear infinite;
 
   @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
   }
   @keyframes pulse-subtle {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.5; }
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
   }
   @keyframes fade-in {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
   @keyframes meteor {
-    0% { transform: rotate(215deg) translateX(0); opacity: 1; }
-    70% { opacity: 1; }
-    100% { transform: rotate(215deg) translateX(-500px); opacity: 0; }
+    0% {
+      transform: rotate(215deg) translateX(0);
+      opacity: 1;
+    }
+    70% {
+      opacity: 1;
+    }
+    100% {
+      transform: rotate(215deg) translateX(-500px);
+      opacity: 0;
+    }
   }
 }
 
@@ -54,14 +81,19 @@
     --border: 222 47% 20%;
   }
 
-  * { @apply border-border; }
+  * {
+    @apply border-border;
+  }
 
-  html { @apply scroll-smooth; }
+  html {
+    @apply scroll-smooth;
+  }
   body {
     @apply bg-background text-foreground transition-colors duration-300;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
 }
+
 
 @layer utilities {
   .container {
@@ -76,6 +108,7 @@
 
   .text-glow {
     @apply relative;
+
     text-shadow: 0 0 10px rgba(167, 139, 250, 0.5);
   }
 
@@ -106,7 +139,6 @@
     background: linear-gradient(to right, white, transparent);
     border-radius: 9999px;
     box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.3);
-    animation: var(--animate-meteor); /* <-- Added this line */
   }
 }
 
@@ -116,3 +148,5 @@
   padding: 0;
   text-align: center;
 }
+
+
