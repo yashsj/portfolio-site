@@ -1,12 +1,83 @@
-# React + Vite
+# 🚀 Suyash Jawadekar – Software Developer Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Showcasing projects in Backend Engineering, AI/ML, scalable systems, and modern web development.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📦 Tech Stack
 
-## Expanding the ESLint configuration
+- **React** + **Vite** (fast HMR and builds)
+- **Tailwind CSS** (utility-first styling)
+- **Custom CSS & Animations**
+- **Jest** / **ESLint** (quality & testing)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 💡 Features
+
+- Responsive, dark mode-enabled UI
+- Animated starfield and meteors background
+- Easy navigation and project showcase
+- Optimized for fast performance and SEO
+
+---
+
+## ⚡ Getting Started
+
+### Prerequisites
+
+- Node.js (18+ recommended)
+- npm
+
+### Installation
+
+
+Clone, install, and run the project locally:
+
+git clone https://github.com/suyash-jawadekar/portfolio.git
+cd portfolio
+npm install
+npm run dev
+
+Build for production:
+
+*Production files are output to the `dist/` folder.*
+
+---
+
+## ✨ Customization
+
+- Edit site content in `/src/`
+- Replace favicon in `/public/myicon.ico`
+- Adjust styles using `src/index.css` or Tailwind config
+
+---
+
+## 📷 Demo
+
+![Screenshot](./public/preview.png)
+
+[Live Site](https://suyashjawadekar.vercel.app/)
+
+---
+
+## 📚 Documentation
+
+- [React Docs](https://react.dev/)
+- [Vite Docs](https://vitejs.dev/)
+- [Tailwind Docs](https://tailwindcss.com/)
+
+---
+
+## 🤝 Contributing
+
+Open issues or pull requests—feedback and collaboration welcome!
+
+---
+
+## 📧 Contact
+
+[LinkedIn](https://www.linkedin.com/in/suyash-jawadekar/)  
+[Email](mailto:suyashjawadekar@gmail.com)
+
+
